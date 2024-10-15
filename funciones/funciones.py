@@ -47,14 +47,18 @@ def menu_principal(data):
                 mostrar_matriz_recaudacion(concesionaria)
             case 6:
                 mas_de_seis = contar_mas_de_seis(concesionaria)
-                mensaje_6 = f"La cantidad de garajes con mas de 6 unidades es: {mas_de_seis}"
+                mensaje_6 = f"La cantidad de garajes con mas de 6 unidades es: {
+                    mas_de_seis}"
                 print(mensaje_6)
             case 7:
                 porcentaje = maximo_porcentaje(data, concesionaria)
-                mensaje_porcentaje = f"El concesionario con el maximo porcentaje {porcentaje[0]:.2f}% es \n"
+                mensaje_porcentaje = f"El concesionario con el maximo porcentaje {
+                    porcentaje[0]:.2f}% es \n"
                 print(mensaje_porcentaje)
                 mostrar_uno(concesionaria, porcentaje[1])
             case 8:
+                mensaje_rec_ordenada = "Lista recaudacion por Garage: "
+                print(mensaje_rec_ordenada)
                 mostrar_recaudacion_ordenada(concesionaria)
             case 9:
                 print('Saliendo...')

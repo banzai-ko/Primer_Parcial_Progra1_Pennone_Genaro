@@ -162,11 +162,18 @@ def maximo_porcentaje(dataset: list[list], garages) -> None:
     return [porcentaje, max_indice]
 
 
-def ordenar_recaudacion(dataset):
+def ordenar_recaudacion(dataset, n=None):
+    if n is None:
+        n = len(dataset)
+
+    if n == 1:
+        return dataset
+
     for i in range(len(dataset)-1):
         if dataset[i][5] < dataset[i + 1][5]:
             dataset[i], dataset[i + 1] = dataset[i + 1], dataset[i]
-    return dataset
+    return ordenar_recaudacion(dataset, n - 1)
+
 
 
 def mostrar_recaudacion_ordenada(dataset: list[list]) -> None:
