@@ -101,7 +101,7 @@ def obtener_min(dataset: list[list]) -> int:
         int: El garage con menos unidades.
     """
     indice_minimo = 0
-    cantidad_minima = dataset[0][3] 
+    cantidad_minima = dataset[0][3]
 
     for i in range(1, len(dataset)):
         if dataset[i][3] < cantidad_minima:
@@ -109,6 +109,7 @@ def obtener_min(dataset: list[list]) -> int:
             indice_minimo = i
 
     return indice_minimo
+
 
 def obtener_max(dataset: list[list]) -> int:
     """Obtiene el garage con menos unidades.
@@ -129,6 +130,7 @@ def obtener_max(dataset: list[list]) -> int:
 
     return indice_max
 
+
 def mostrar_matriz_recaudacion(dataset: list[list]) -> None:
     """Muestra la matriz de forma tabular.
 
@@ -144,6 +146,7 @@ def mostrar_matriz_recaudacion(dataset: list[list]) -> None:
 
         print(f"{garage:<8}{precio_total:<15}")
 
+
 def contar_mas_de_seis(dataset: list[list]) -> int:
     cantidad = 0
     for elem in dataset:
@@ -151,8 +154,21 @@ def contar_mas_de_seis(dataset: list[list]) -> int:
             cantidad += 1
     return cantidad
 
+
 def maximo_porcentaje(dataset: list[list], garages) -> None:
     total_unidades = sumar_unidades(dataset)
     max_indice = obtener_max(garages)
-    porcentaje =  garages[max_indice][3] /  total_unidades * 100
+    porcentaje = garages[max_indice][3] / total_unidades * 100
     return [porcentaje, max_indice]
+
+
+def ordenar_recaudacion(dataset):
+    for i in range(len(dataset)-1):
+        if dataset[i][5] < dataset[i + 1][5]:
+            dataset[i], dataset[i + 1] = dataset[i + 1], dataset[i]
+    return dataset
+
+
+def mostrar_recaudacion_ordenada(dataset: list[list]) -> None:
+    reca = ordenar_recaudacion(dataset)
+    mostrar_matriz_recaudacion(reca)

@@ -3,7 +3,7 @@
     """
 from UTN_Heroes_Dataset.utn_pp import mostrar_matriz_texto_tabla, clear_console
 from auxiliares.auxiliares import (mostrar_menu, mostrar_matriz, cargar_datos, sumar_unidades,
-                                   obtener_min, mostrar_uno, obtener_max, mostrar_matriz_recaudacion, contar_mas_de_seis, maximo_porcentaje)
+                                   obtener_min, mostrar_uno, obtener_max, mostrar_matriz_recaudacion, contar_mas_de_seis, maximo_porcentaje, mostrar_recaudacion_ordenada)
 from validar.validar import validar_entrada
 
 # 1. Obtener existencias: para ello deberá crear una función que cargue la existencia de cada vehículo en todos los garajes y mostrarlos.
@@ -55,7 +55,7 @@ def menu_principal(data):
                 print(mensaje_porcentaje)
                 mostrar_uno(concesionaria, porcentaje[1])
             case 8:
-                pass
+                mostrar_recaudacion_ordenada(concesionaria)
             case 9:
                 print('Saliendo...')
                 break
